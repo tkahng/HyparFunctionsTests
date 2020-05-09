@@ -1,0 +1,9 @@
+[Bb]in/
+[Oo]bj/
+.vs/
+.vscode/
+TestOutput/
+*.glb
+output.json
+input.json
+.DS_Store
