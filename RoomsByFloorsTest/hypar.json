@@ -1,0 +1,101 @@
+{
+  "$schema": "https://hypar.io/Schemas/Function.json",
+  "id": "414d5bf1-0d8f-4404-b4c3-2418aa3a50d7",
+  "name": "Rooms By Floors Test",
+  "description": "The RoomsByFloorsTest function.",
+  "language": "C#",
+  "model_dependencies": [
+    {
+      "name": "Floors",
+      "optional": false
+    }
+  ],
+  "model_output": "Rooms",
+  "inputs": [
+    {
+      "min": 1.0,
+      "max": 50.0,
+      "step": 1.0,
+      "name": "Ground Floor Room Length Divisions",
+      "description": "Number of rooms on the x-axis of the ground floor.",
+      "type": "range"
+    },
+    {
+      "min": 1.0,
+      "max": 50.0,
+      "step": 1.0,
+      "name": "Ground Floor Room Width Divisions",
+      "description": "Number of rooms on the y-axis of the ground floor.",
+      "type": "range"
+    },
+    {
+      "min": 1.0,
+      "max": 50.0,
+      "step": 1.0,
+      "name": "Typical Floor Rooms Length Divisions",
+      "description": "Number of rooms on the x-axis of typical floors.",
+      "type": "range"
+    },
+    {
+      "min": 1.0,
+      "max": 50.0,
+      "step": 1.0,
+      "name": "Typical Floor Rooms Width Divisions",
+      "description": "Number of rooms on the y-axis of typical floors.",
+      "type": "range"
+    },
+    {
+      "min": 0.0,
+      "max": 2.0,
+      "step": 0.1,
+      "name": "Plan Setback",
+      "description": "Plan setback from the edge of all floors.",
+      "type": "range"
+    },
+    {
+      "min": 0.0,
+      "max": 355.0,
+      "step": 1.0,
+      "name": "Plan Rotation",
+      "description": "Plan rotation for all floors.",
+      "type": "range"
+    },
+    {
+      "name": "Rooms in 3D",
+      "description": "Display rooms in 3D or 2D.",
+      "type": "boolean"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "Ground Floor Room Quantity",
+      "description": "Quantity of rooms on the ground floor.",
+      "type": "number"
+    },
+    {
+      "name": "Ground Floor Area",
+      "description": "Area for the ground floor.",
+      "type": "number"
+    },
+    {
+      "name": "Typical Floor Room Quantity",
+      "description": "Quantity of rooms on the ground floor.",
+      "type": "number"
+    },
+    {
+      "name": "Upper Floors Room Quantity",
+      "description": "Quantity of rooms on all upper floors.",
+      "type": "number"
+    },
+    {
+      "name": "Upper Floor Total Area",
+      "description": "Total area for all upper floors.",
+      "type": "number"
+    }
+  ],
+  "element_types": [
+    "https://raw.githubusercontent.com/hypar-io/Schemas/master/Room.json"
+  ],
+  "repository_url": "https://github.com/hypar-io/function",
+  "preview_image": null
+}

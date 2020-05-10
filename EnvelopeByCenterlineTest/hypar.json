@@ -1,0 +1,58 @@
+{
+  "$schema": "https://hypar.io/Schemas/Function.json",
+  "id": "1b3ce157-3d36-493f-babf-520366a6669c",
+  "name": "Envelope By Centerline Test",
+  "description": "The EnvelopeByCenterlineTest function.",
+  "language": "C#",
+  "model_output": "Envelope",
+  "inputs": [
+    {
+      "primitive_type": "polyline",
+      "name": "Centerline",
+      "description": "Centerline of the building envelope.",
+      "type": "geometry"
+    },
+    {
+      "min": 5.0,
+      "max": 100.0,
+      "step": 1.0,
+      "name": "Building Height",
+      "description": "Overall height of the building from grade.",
+      "type": "range"
+    },
+    {
+      "min": 10.0,
+      "max": 30.0,
+      "step": 1.0,
+      "name": "Bar Width",
+      "description": "Width of the mass perpendicular to the Centerline.",
+      "type": "range"
+    },
+    {
+      "min": 5.0,
+      "max": 20.0,
+      "step": 1.0,
+      "name": "Foundation Depth",
+      "description": "Depth of the building envelope below grade.",
+      "type": "range"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "Height",
+      "description": "Height of the building.",
+      "type": "number"
+    },
+    {
+      "name": "Subgrade",
+      "description": "Depth of the subgrade section.",
+      "type": "number"
+    }
+  ],
+  "element_types": [
+    "https://raw.githubusercontent.com/hypar-io/Schemas/master/Envelope.json",
+    "https://raw.githubusercontent.com/andrewheumann/EnvelopeByCenterline/master/Sketch.json"
+  ],
+  "repository_url": "https://github.com/hypar-io/function",
+  "preview_image": null
+}

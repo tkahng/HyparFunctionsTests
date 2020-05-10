@@ -1,0 +1,59 @@
+{
+  "$schema": "https://hypar.io/Schemas/Function.json",
+  "id": "d66334df-c6dc-4363-9018-2aa74568a77e",
+  "name": "testfunction1",
+  "description": "The Testfunction1 function.",
+  "language": "C#",
+  "inputs": [
+    {
+      "min": 1.0,
+      "max": 10.0,
+      "step": 1.0,
+      "unit_type": "none",
+      "name": "Offset Width",
+      "description": "The Offset Distance.",
+      "type": "range"
+    },
+    {
+      "min": 1.0,
+      "max": 10.0,
+      "step": 1.0,
+      "unit_type": "none",
+      "name": "Bridge Width",
+      "description": "The width of the Bridge.",
+      "type": "range"
+    },
+    {
+      "min": 1.0,
+      "max": 10.0,
+      "step": 1.0,
+      "unit_type": "none",
+      "name": "Bridge Height",
+      "description": "The height of the Bridge.",
+      "type": "range"
+    },
+    {
+      "type": "choice",
+      "choices": ["Wood", "Steel", "Red"],
+      "name": "Material",
+      "description": "the bridge's material."
+    },
+    {
+      "type": "geometry",
+      "primitive_type": "polyline",
+      "name": "Center Line",
+      "description": "The Center Line of the Bridge" 
+    }
+  ],
+  "outputs": [
+    {
+      "unit_type": "none",
+      "name": "Volume",
+      "description": "The volume.",
+      "type": "number"
+    }
+  ],
+  "element_types": null,
+  "repository_url": "https://github.com/hypar-io/function",
+  "preview_image": null
+}

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://hypar.io/Schemas/Function.json",
+  "id": "2702cf9b-be23-48e5-a9a7-ef9cd6155d66",
+  "name": "Subdivide Slab New",
+  "description": "The SubdivideSlabNew function.",
+  "language": "C#",
+  "model_dependencies": [
+    {
+      "name": "Floors",
+      "optional": false
+    }
+  ],
+  "model_output": "Slab Subdivisions",
+  "inputs": [
+    {
+      "min": 1.0,
+      "max": 50.0,
+      "step": 1.0,
+      "name": "Length",
+      "description": "The max length of each subdivision.",
+      "type": "range"
+    },
+    {
+      "min": 1.0,
+      "max": 50.0,
+      "step": 1.0,
+      "name": "Width",
+      "description": "The max width of each subdivision.",
+      "type": "range"
+    },
+    {
+      "name": "Subdivide at void corners",
+      "description": "If true, splits will be inserted at the corners of voids.",
+      "type": "boolean"
+    },
+    {
+      "name": "Align to longest edge",
+      "description": "If true, grid orientation will run parallel to the longest edge of the floor boundary.",
+      "type": "boolean"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "Count",
+      "description": "Number of regions.",
+      "type": "number"
+    },
+    {
+      "type": "number",
+      "name": "ColCount",
+      "description": "number of columns"
+    }
+  ],
+  "element_types": [
+    "https://raw.githubusercontent.com/hypar-io/Schemas/master/Exclusion.json",
+    "https://raw.githubusercontent.com/andrewheumann/SubdivideSlab/master/SlabSubdivision.json"
+  ],
+  "repository_url": "https://github.com/hypar-io/function",
+  "preview_image": null
+}
