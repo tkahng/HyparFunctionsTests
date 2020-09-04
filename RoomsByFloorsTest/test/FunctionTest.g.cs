@@ -27,7 +27,7 @@ namespace RoomsByFloorsTest.Tests
         public async Task InvokeFunction()
         {
             var root = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "../../../../");
-            var config = Hypar.Functions.Function.FromJson(File.ReadAllText(Path.Combine(root, "hypar.json")));
+            var config = Hypar.Model.Function.FromJson(File.ReadAllText(Path.Combine(root, "hypar.json")));
 
             var store = new FileModelStore<RoomsByFloorsTestInputs>(root, true);
 

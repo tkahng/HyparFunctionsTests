@@ -48,7 +48,7 @@ namespace Testfunction1
 		public Elements.Geometry.Polyline CenterLine {get;}
 
 
-        
+
         /// <summary>
         /// Construct a Testfunction1Inputs with default inputs.
         /// This should be used for testing only.
@@ -69,13 +69,13 @@ namespace Testfunction1
         /// </summary>
         /// <returns></returns>
         [JsonConstructor]
-        public Testfunction1Inputs(double offsetwidth, double bridgewidth, double bridgeheight, Material material, Elements.Geometry.Polyline centerline, string bucketName, string uploadsBucket, Dictionary<string, string> modelInputKeys, string gltfKey, string elementsKey, string ifcKey): base(bucketName, uploadsBucket, modelInputKeys, gltfKey, elementsKey, ifcKey)
+        public Testfunction1Inputs(double offsetWidth, double bridgeWidth, double bridgeHeight, Material material, Elements.Geometry.Polyline centerLine, string bucketName, string uploadsBucket, Dictionary<string, string> modelInputKeys, string gltfKey, string elementsKey, string ifcKey): base(bucketName, uploadsBucket, modelInputKeys, gltfKey, elementsKey, ifcKey)
         {
-			this.OffsetWidth = offsetwidth;
-			this.BridgeWidth = bridgewidth;
-			this.BridgeHeight = bridgeheight;
+			this.OffsetWidth = offsetWidth;
+			this.BridgeWidth = bridgeWidth;
+			this.BridgeHeight = bridgeHeight;
 			this.Material = material;
-			this.CenterLine = centerline;
+			this.CenterLine = centerLine;
 
 		}
 

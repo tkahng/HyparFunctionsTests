@@ -30,7 +30,7 @@ namespace Testfunction1
                 var asmDir = Path.GetDirectoryName(asmLocation);
                 var asmName = Path.GetFileNameWithoutExtension(asmLocation);
                 var depPath = Path.Combine(asmDir, $"{asmName}.Dependencies.dll");
-                
+
                 if(File.Exists(depPath))
                 {
                     Console.WriteLine($"Loading dependencies from assembly: {depPath}...");
@@ -40,7 +40,7 @@ namespace Testfunction1
 
                 this.store = new S3ModelStore<Testfunction1Inputs>(RegionEndpoint.USWest1);
             }
-            
+
             var l = new InvocationWrapper<Testfunction1Inputs,Testfunction1Outputs>(store, Testfunction1.Execute);
             var output = await l.InvokeAsync(args);
             return output;
