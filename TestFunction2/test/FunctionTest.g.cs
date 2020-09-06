@@ -29,7 +29,7 @@ namespace TestFunction2.Tests
             var root = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "../../../../");
             var config = Hypar.Model.Function.FromJson(File.ReadAllText(Path.Combine(root, "hypar.json")));
 
-            var store = new FileModelStore<TestFunction2Inputs>(root, true);
+            var store = new FileModelStore<TestFunction2Inputs>(root);
 
             // Create an input object with default values.
             var input = new TestFunction2Inputs();

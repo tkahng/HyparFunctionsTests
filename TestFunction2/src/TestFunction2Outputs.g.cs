@@ -23,7 +23,7 @@ namespace TestFunction2
 		public double Volume {get;}
 
 
-        
+
         /// <summary>
         /// Construct a TestFunction2Outputs with default inputs.
         /// This should be used for testing only.

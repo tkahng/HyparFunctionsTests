@@ -1,11 +1,12 @@
 
-            
+
 # Test Function 2
 
 The TestFunction2 function.
 
 |Input Name|Type|Description|
 |---|---|---|
+|Outline|Geometry|outline|
 |Length|Range|The length.|
 |Width|Range|The width.|
 

@@ -17,6 +17,12 @@ namespace TestFunction2
     public class TestFunction2Inputs: S3Args
     {
 		/// <summary>
+		/// outline
+		/// </summary>
+		[JsonProperty("Outline")]
+		public Elements.Geometry.Polygon Outline {get;}
+
+		/// <summary>
 		/// The length.
 		/// </summary>
 		[JsonProperty("Length")]
@@ -29,13 +35,14 @@ namespace TestFunction2
 		public double Width {get;}
 
 
-        
+
         /// <summary>
         /// Construct a TestFunction2Inputs with default inputs.
         /// This should be used for testing only.
         /// </summary>
         public TestFunction2Inputs() : base()
         {
+			this.Outline = Elements.Geometry.Polygon.Rectangle(1, 1);
 			this.Length = 10;
 			this.Width = 10;
 
@@ -47,8 +54,9 @@ namespace TestFunction2
         /// </summary>
         /// <returns></returns>
         [JsonConstructor]
-        public TestFunction2Inputs(double length, double width, string bucketName, string uploadsBucket, Dictionary<string, string> modelInputKeys, string gltfKey, string elementsKey, string ifcKey): base(bucketName, uploadsBucket, modelInputKeys, gltfKey, elementsKey, ifcKey)
+        public TestFunction2Inputs(Elements.Geometry.Polygon outline, double length, double width, string bucketName, string uploadsBucket, Dictionary<string, string> modelInputKeys, string gltfKey, string elementsKey, string ifcKey): base(bucketName, uploadsBucket, modelInputKeys, gltfKey, elementsKey, ifcKey)
         {
+			this.Outline = outline;
 			this.Length = length;
 			this.Width = width;
 

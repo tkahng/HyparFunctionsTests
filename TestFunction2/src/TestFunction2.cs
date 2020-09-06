@@ -21,11 +21,32 @@ namespace TestFunction2
         public static TestFunction2Outputs Execute(Dictionary<string, Model> inputModels, TestFunction2Inputs input)
         {
             /// Your code here.
+            List<ModelCurve> modelCurves = new List<ModelCurve>();
+            List<Curve> Curves = new List<Curve>();
+            List<Polygon> Polygons = new List<Polygon>();
+
+            var bndry = input.Outline;
+            var spine = bndry.Spine();
+            var jig = bndry.Jigsaw();
             var height = 1.0;
             var volume = input.Length * input.Width * height;
-            var output = new TestFunction2Outputs(volume);
+            var output = new TestFunction2Outputs(1.0);
             var rectangle = Polygon.Rectangle(input.Length, input.Width);
-            var mass = new Mass(rectangle, height);
+            var mass = new Mass(bndry, height);
+            Polygons.AddRange(new[] { bndry });
+            
+            Curves.AddRange(spine);
+            Curves.AddRange(jig);
+
+            foreach(var crv in Curves){
+              modelCurves.Add(new ModelCurve(crv));
+            }
+
+            foreach(var crv in Polygons){
+              modelCurves.Add(new ModelCurve(crv));
+            }
+
+            output.Model.AddElements(modelCurves);
             output.Model.AddElement(mass);
             return output;
         }

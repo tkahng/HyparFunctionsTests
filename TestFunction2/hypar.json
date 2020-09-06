@@ -6,6 +6,12 @@
   "language": "C#",
   "inputs": [
     {
+      "type": "geometry",
+      "primitive_type": "polygon",
+      "description": "outline",
+      "name": "Outline"
+    },
+    {
       "min": 1.0,
       "max": 10.0,
       "step": 1.0,
@@ -32,7 +38,12 @@
       "type": "number"
     }
   ],
-  "element_types": null,
+  "element_types": [
+    "https://raw.githubusercontent.com/hypar-io/Schemas/master/Corridor.json",
+    "https://raw.githubusercontent.com/hypar-io/Schemas/master/LevelPerimeter.json",
+    "https://raw.githubusercontent.com/hypar-io/Schemas/master/Room.json",
+    "https://raw.githubusercontent.com/andrewheumann/EnvelopeByCenterline/master/Sketch.json"
+  ],
   "repository_url": "https://github.com/hypar-io/function",
   "preview_image": null
 }
