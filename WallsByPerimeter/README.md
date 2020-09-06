@@ -6,7 +6,7 @@ The WallsByPerimeter function.
 
 |Input Name|Type|Description|
 |---|---|---|
-|Wall Thickness|Number|The Thickness of the walls|
+|Wall Thickness|Range|The Thickness of the walls|
 
 
 <br>

@@ -30,7 +30,7 @@ namespace WallsByPerimeter
         /// </summary>
         public WallsByPerimeterInputs() : base()
         {
-			this.WallThickness = 5;
+			this.WallThickness = 1;
 
         }
 

@@ -16,8 +16,11 @@
   ],
   "inputs": [
     {
-      "type": "number",
-      "unit_type": "length",
+      "min": 0.01,
+      "max": 1.00,
+      "step": 0.01,
+      "type": "range",
+      "unit_type": "none",
       "name": "Wall Thickness",
       "description": "The Thickness of the walls"
     }
@@ -31,8 +34,8 @@
     }
   ],
   "element_types": [
-    "https://github.com/hypar-io/Schemas/blob/master/LevelPerimeter.json",
-    "https://github.com/hypar-io/Schemas/blob/master/WallByProfile.json"
+    "https://raw.githubusercontent.com/hypar-io/Schemas/master/LevelPerimeter.json",
+    "https://raw.githubusercontent.com/hypar-io/Schemas/master/WallByProfile.json"
   ],
   "repository_url": "https://github.com/hypar-io/function",
   "source_file_key": null,
