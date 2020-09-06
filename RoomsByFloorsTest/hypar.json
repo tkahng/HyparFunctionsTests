@@ -6,7 +6,11 @@
   "language": "C#",
   "model_dependencies": [
     {
-      "name": "Floors",
+      "name": "Envelope",
+      "optional": false
+    },
+    {
+      "name": "Levels",
       "optional": false
     }
   ],

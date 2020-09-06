@@ -1,0 +1,40 @@
+{
+  "$schema": "https://hypar.io/Schemas/Function.json",
+  "id": "f34a3b61-d692-49b4-8cb0-59faef003e5a",
+  "name": "WallsByPerimeter",
+  "description": "The WallsByPerimeter function.",
+  "language": "C#",
+  "model_dependencies": [
+    {
+      "name": "Envelope",
+      "optional": false
+    },
+    {
+      "name": "Levels",
+      "optional": false
+    }
+  ],
+  "inputs": [
+    {
+      "type": "number",
+      "unit_type": "length",
+      "name": "Wall Thickness",
+      "description": "The Thickness of the walls"
+    }
+  ],
+  "outputs": [
+    {
+      "unit_type": "none",
+      "name": "Volume",
+      "description": "The volume.",
+      "type": "number"
+    }
+  ],
+  "element_types": [
+    "https://github.com/hypar-io/Schemas/blob/master/LevelPerimeter.json",
+    "https://github.com/hypar-io/Schemas/blob/master/WallByProfile.json"
+  ],
+  "repository_url": "https://github.com/hypar-io/function",
+  "source_file_key": null,
+  "preview_image": null
+}
