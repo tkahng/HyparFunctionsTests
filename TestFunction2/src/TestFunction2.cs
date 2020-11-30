@@ -24,20 +24,40 @@ namespace TestFunction2
             List<ModelCurve> modelCurves = new List<ModelCurve>();
             List<Curve> Curves = new List<Curve>();
             List<Polygon> Polygons = new List<Polygon>();
-
+            
             var bndry = input.Outline;
             var spine = bndry.Spine();
             var jig = bndry.Jigsaw();
+            var skel = bndry.Skeleton();
             var height = 1.0;
             var volume = input.Length * input.Width * height;
             var output = new TestFunction2Outputs(1.0);
             var rectangle = Polygon.Rectangle(input.Length, input.Width);
             var mass = new Mass(bndry, height);
             Polygons.AddRange(new[] { bndry });
-            
-            Curves.AddRange(spine);
-            Curves.AddRange(jig);
+            var bbox = new List<Polygon>();
+            foreach (var item in jig)
+            {
+                bbox.Add(item.AlignedBox());
+            }
+            var clips = new List<Polygon>();
+            for (int i = 0; i < bbox.Count - 1; i++)
+            {
+                clips.AddRange(Shaper.Differences(bbox[i].ToList(), bbox[i+1].ToList()));
+            }
 
+            var masses = new List<Mass>();
+
+            for (var i = 0; i < clips.Count; i++)
+            {
+                masses.Add(new Mass(clips[i], 1+i, name: i.ToString()));
+            }
+            
+            // Curves.AddRange(spine);
+            // Curves.AddRange(jig);
+            Curves.AddRange(clips);
+            // Curves.AddRange(bbox);
+            
             foreach(var crv in Curves){
               modelCurves.Add(new ModelCurve(crv));
             }
@@ -45,9 +65,9 @@ namespace TestFunction2
             foreach(var crv in Polygons){
               modelCurves.Add(new ModelCurve(crv));
             }
-
+            // modelCurves[0].
             output.Model.AddElements(modelCurves);
-            output.Model.AddElement(mass);
+            output.Model.AddElements(masses);
             return output;
         }
       }

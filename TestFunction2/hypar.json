@@ -38,6 +38,7 @@
       "type": "number"
     }
   ],
+  "model_output": "ModelCurve",
   "element_types": [
     "https://raw.githubusercontent.com/hypar-io/Schemas/master/Corridor.json",
     "https://raw.githubusercontent.com/hypar-io/Schemas/master/LevelPerimeter.json",
