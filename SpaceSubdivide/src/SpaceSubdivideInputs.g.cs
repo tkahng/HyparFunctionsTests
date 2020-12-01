@@ -16,6 +16,12 @@ namespace SpaceSubdivide
 {
     public class SpaceSubdivideInputs: S3Args
     {
+		/// <summary>
+		/// Outline
+		/// </summary>
+		[JsonProperty("Sketch")]
+		public Elements.Geometry.Polygon Sketch {get;}
+
 
 
         /// <summary>
@@ -24,6 +30,7 @@ namespace SpaceSubdivide
         /// </summary>
         public SpaceSubdivideInputs() : base()
         {
+			this.Sketch = Elements.Geometry.Polygon.Rectangle(1, 1);
 
         }
 
@@ -33,8 +40,9 @@ namespace SpaceSubdivide
         /// </summary>
         /// <returns></returns>
         [JsonConstructor]
-        public SpaceSubdivideInputs(string bucketName, string uploadsBucket, Dictionary<string, string> modelInputKeys, string gltfKey, string elementsKey, string ifcKey): base(bucketName, uploadsBucket, modelInputKeys, gltfKey, elementsKey, ifcKey)
+        public SpaceSubdivideInputs(Elements.Geometry.Polygon sketch, string bucketName, string uploadsBucket, Dictionary<string, string> modelInputKeys, string gltfKey, string elementsKey, string ifcKey): base(bucketName, uploadsBucket, modelInputKeys, gltfKey, elementsKey, ifcKey)
         {
+			this.Sketch = sketch;
 
 		}
 

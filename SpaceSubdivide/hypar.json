@@ -8,15 +8,24 @@
     {
       "autohide": false,
       "name": "Envelope",
-      "optional": false
+      "optional": true
     },
     {
       "autohide": false,
       "name": "Levels",
-      "optional": false
+      "optional": true
     }
   ],
-  "inputs": [],
+
+  "inputs": [
+    {
+      "type": "geometry",
+      "primitive_type": "polygon",
+      "name": "Sketch",
+      "description": "Outline"
+    }
+  ],
+
   "outputs": [],
   "element_types": [
     "https://raw.githubusercontent.com/hypar-io/Schemas/master/LevelPerimeter.json",

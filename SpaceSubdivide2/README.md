@@ -1,12 +1,11 @@
 
 
-# Space Subdivide
+# Space Subdivide 2
 
-partitions levels using various geometric operations
+
 
 |Input Name|Type|Description|
 |---|---|---|
-|Sketch|Geometry|Outline|
 
 
 <br>
