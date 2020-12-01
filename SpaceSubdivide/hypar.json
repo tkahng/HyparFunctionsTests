@@ -1,0 +1,37 @@
+{
+  "$schema": "https://hypar.io/Schemas/Function.json",
+  "id": "aa25ca3b-4b43-4ce9-9849-f5731d582aac",
+  "name": "Space Subdivide",
+  "description": "partitions levels using various geometric operations",
+  "language": "C#",
+  "model_dependencies": [
+    {
+      "autohide": false,
+      "name": "Envelope",
+      "optional": true
+    },
+    {
+      "autohide": false,
+      "name": "Levels",
+      "optional": true
+    }
+  ],
+
+  "inputs": [
+    {
+      "type": "geometry",
+      "primitive_type": "polygon",
+      "name": "Sketch",
+      "description": "Outline"
+    }
+  ],
+
+  "outputs": [],
+  "element_types": [
+    "https://raw.githubusercontent.com/hypar-io/Schemas/master/LevelPerimeter.json",
+    "https://raw.githubusercontent.com/hypar-io/Schemas/master/Room.json"
+  ],
+  "repository_url": "",
+  "source_file_key": null,
+  "preview_image": null
+}

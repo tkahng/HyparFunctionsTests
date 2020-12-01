@@ -1,0 +1,44 @@
+{
+  "$schema": "https://hypar.io/Schemas/Function.json",
+  "id": "1bf4d4ea-0e09-45d0-b066-5408fef6bb12",
+  "name": "Space Subdivide 2",
+  "description": "",
+  "language": "C#",
+  "model_dependencies": [],
+  "model_output": "Envelope",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "CenterLines": {
+        "description": "CenterLines",
+        "default": [
+          null,
+          null
+        ],
+        "type": "array",
+        "$hyparOrder": 1,
+        "items": {
+          "name": "Line",
+          "description": "Line",
+          "default": null,
+          "type": "object",
+          "$ref": "https://hypar.io/Schemas/Geometry/Polyline.json"
+        }
+      },
+      "Sketch": {
+        "description": "A closed planar polygon.",
+        "default": null,
+        "type": "object",
+        "$hyparOrder": 0,
+        "$ref": "https://hypar.io/Schemas/Geometry/Polygon.json"
+      }
+    }
+  },
+  "outputs": [],
+  "element_types": [
+    "https://prod-api.hypar.io/schemas/Envelope"
+  ],
+  "repository_url": "",
+  "source_file_key": null,
+  "preview_image": null
+}
