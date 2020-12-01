@@ -6,7 +6,6 @@ partitions levels using various geometric operations
 
 |Input Name|Type|Description|
 |---|---|---|
-|Sketch|Geometry|Outline|
 
 
 <br>

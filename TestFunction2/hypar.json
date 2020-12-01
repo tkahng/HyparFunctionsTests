@@ -4,32 +4,37 @@
   "name": "Test Function 2",
   "description": "The TestFunction2 function.",
   "language": "C#",
-  "inputs": [
-    {
-      "type": "geometry",
-      "primitive_type": "polygon",
-      "description": "outline",
-      "name": "Outline"
-    },
-    {
-      "min": 1.0,
-      "max": 10.0,
-      "step": 1.0,
-      "unit_type": "none",
-      "name": "Length",
-      "description": "The length.",
-      "type": "range"
-    },
-    {
-      "min": 1.0,
-      "max": 10.0,
-      "step": 1.0,
-      "unit_type": "none",
-      "name": "Width",
-      "description": "The width.",
-      "type": "range"
+  "input_schema": {
+    "type": "object",
+    "properties": {
+
+        "Length": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 100,
+          "multipleOf": 0.5,
+          "$hyparUnitType": "area",
+          "default": 90
+      },
+  
+      "Width": {
+        "type": "number",
+        "minimum": 1,
+        "maximum": 100,
+        "multipleOf": 0.5,
+        "$hyparUnitType": "area",
+        "default": 90
+      },
+    
+      "Outline": {
+        "description": "outline.",
+        "default": null,
+        "type": "object",
+        "$hyparOrder": 0,
+        "$ref": "https://hypar.io/Schemas/Geometry/Polygon.json"
+      }
     }
-  ],
+  },
   "outputs": [
     {
       "unit_type": "none",

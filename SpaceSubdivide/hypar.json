@@ -17,14 +17,34 @@
     }
   ],
 
-  "inputs": [
-    {
-      "type": "geometry",
-      "primitive_type": "polygon",
-      "name": "Sketch",
-      "description": "Outline"
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "CenterLines": {
+        "description": "CenterLines",
+        "default": [
+          null,
+          null
+        ],
+        "type": "array",
+        "$hyparOrder": 1,
+        "items": {
+          "name": "Line",
+          "description": "Line",
+          "default": null,
+          "type": "object",
+          "$ref": "https://hypar.io/Schemas/Geometry/Polyline.json"
+        }
+      },
+      "Sketch": {
+        "description": "A closed planar polygon.",
+        "default": null,
+        "type": "object",
+        "$hyparOrder": 0,
+        "$ref": "https://hypar.io/Schemas/Geometry/Polygon.json"
+      }
     }
-  ],
+  },
 
   "outputs": [],
   "element_types": [

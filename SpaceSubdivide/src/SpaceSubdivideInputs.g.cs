@@ -5,51 +5,65 @@
 using Elements;
 using Elements.GeoJSON;
 using Elements.Geometry;
+using Elements.Geometry.Solids;
+using Elements.Properties;
+using Elements.Validators;
+using Elements.Serialization.JSON;
 using Hypar.Functions;
 using Hypar.Functions.Execution;
 using Hypar.Functions.Execution.AWS;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using Line = Elements.Geometry.Line;
+using Polygon = Elements.Geometry.Polygon;
 
 namespace SpaceSubdivide
 {
-    public class SpaceSubdivideInputs: S3Args
+    #pragma warning disable // Disable all warnings
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.21.0 (Newtonsoft.Json v12.0.0.0)")]
+    
+    public  class SpaceSubdivideInputs : S3Args
+    
     {
-		/// <summary>
-		/// Outline
-		/// </summary>
-		[JsonProperty("Sketch")]
-		public Elements.Geometry.Polygon Sketch {get;}
-
-
-
-        /// <summary>
-        /// Construct a SpaceSubdivideInputs with default inputs.
-        /// This should be used for testing only.
-        /// </summary>
-        public SpaceSubdivideInputs() : base()
+        [Newtonsoft.Json.JsonConstructor]
+        
+        public SpaceSubdivideInputs(IList<Polyline> @centerLines, Polygon @sketch, string bucketName, string uploadsBucket, Dictionary<string, string> modelInputKeys, string gltfKey, string elementsKey, string ifcKey):
+        base(bucketName, uploadsBucket, modelInputKeys, gltfKey, elementsKey, ifcKey)
         {
-			this.Sketch = Elements.Geometry.Polygon.Rectangle(1, 1);
-
+            var validator = Validator.Instance.GetFirstValidatorForType<SpaceSubdivideInputs>();
+            if(validator != null)
+            {
+                validator.PreConstruct(new object[]{ @centerLines, @sketch});
+            }
+        
+            this.CenterLines = @centerLines;
+            this.Sketch = @sketch;
+        
+            if(validator != null)
+            {
+                validator.PostConstruct(this);
+            }
         }
-
-
-        /// <summary>
-        /// Construct a SpaceSubdivideInputs specifying all inputs.
-        /// </summary>
-        /// <returns></returns>
-        [JsonConstructor]
-        public SpaceSubdivideInputs(Elements.Geometry.Polygon sketch, string bucketName, string uploadsBucket, Dictionary<string, string> modelInputKeys, string gltfKey, string elementsKey, string ifcKey): base(bucketName, uploadsBucket, modelInputKeys, gltfKey, elementsKey, ifcKey)
+    
+        /// <summary>CenterLines</summary>
+        [Newtonsoft.Json.JsonProperty("CenterLines", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public IList<Polyline> CenterLines { get; set; }
+    
+        /// <summary>A closed planar polygon.</summary>
+        [Newtonsoft.Json.JsonProperty("Sketch", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Polygon Sketch { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
         {
-			this.Sketch = sketch;
-
-		}
-
-		public override string ToString()
-		{
-			var json = JsonConvert.SerializeObject(this);
-			return json;
-		}
-	}
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
 }

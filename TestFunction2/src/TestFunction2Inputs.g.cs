@@ -5,67 +5,70 @@
 using Elements;
 using Elements.GeoJSON;
 using Elements.Geometry;
+using Elements.Geometry.Solids;
+using Elements.Properties;
+using Elements.Validators;
+using Elements.Serialization.JSON;
 using Hypar.Functions;
 using Hypar.Functions.Execution;
 using Hypar.Functions.Execution.AWS;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using Line = Elements.Geometry.Line;
+using Polygon = Elements.Geometry.Polygon;
 
 namespace TestFunction2
 {
-    public class TestFunction2Inputs: S3Args
+    #pragma warning disable // Disable all warnings
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.21.0 (Newtonsoft.Json v12.0.0.0)")]
+    
+    public  class TestFunction2Inputs : S3Args
+    
     {
-		/// <summary>
-		/// outline
-		/// </summary>
-		[JsonProperty("Outline")]
-		public Elements.Geometry.Polygon Outline {get;}
-
-		/// <summary>
-		/// The length.
-		/// </summary>
-		[JsonProperty("Length")]
-		public double Length {get;}
-
-		/// <summary>
-		/// The width.
-		/// </summary>
-		[JsonProperty("Width")]
-		public double Width {get;}
-
-
-
-        /// <summary>
-        /// Construct a TestFunction2Inputs with default inputs.
-        /// This should be used for testing only.
-        /// </summary>
-        public TestFunction2Inputs() : base()
+        [Newtonsoft.Json.JsonConstructor]
+        
+        public TestFunction2Inputs(double @length, double @width, Polygon @outline, string bucketName, string uploadsBucket, Dictionary<string, string> modelInputKeys, string gltfKey, string elementsKey, string ifcKey):
+        base(bucketName, uploadsBucket, modelInputKeys, gltfKey, elementsKey, ifcKey)
         {
-			this.Outline = Elements.Geometry.Polygon.Rectangle(1, 1);
-			this.Length = 10;
-			this.Width = 10;
-
+            var validator = Validator.Instance.GetFirstValidatorForType<TestFunction2Inputs>();
+            if(validator != null)
+            {
+                validator.PreConstruct(new object[]{ @length, @width, @outline});
+            }
+        
+            this.Length = @length;
+            this.Width = @width;
+            this.Outline = @outline;
+        
+            if(validator != null)
+            {
+                validator.PostConstruct(this);
+            }
         }
-
-
-        /// <summary>
-        /// Construct a TestFunction2Inputs specifying all inputs.
-        /// </summary>
-        /// <returns></returns>
-        [JsonConstructor]
-        public TestFunction2Inputs(Elements.Geometry.Polygon outline, double length, double width, string bucketName, string uploadsBucket, Dictionary<string, string> modelInputKeys, string gltfKey, string elementsKey, string ifcKey): base(bucketName, uploadsBucket, modelInputKeys, gltfKey, elementsKey, ifcKey)
+    
+        [Newtonsoft.Json.JsonProperty("Length", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Range(1D, 100D)]
+        public double Length { get; set; } = 90D;
+    
+        [Newtonsoft.Json.JsonProperty("Width", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Range(1D, 100D)]
+        public double Width { get; set; } = 90D;
+    
+        /// <summary>outline.</summary>
+        [Newtonsoft.Json.JsonProperty("Outline", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Polygon Outline { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
         {
-			this.Outline = outline;
-			this.Length = length;
-			this.Width = width;
-
-		}
-
-		public override string ToString()
-		{
-			var json = JsonConvert.SerializeObject(this);
-			return json;
-		}
-	}
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
+    
+    
+    }
 }
