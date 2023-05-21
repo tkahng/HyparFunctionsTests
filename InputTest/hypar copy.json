@@ -1,0 +1,87 @@
+{
+  "$schema": "https://hypar.io/Schemas/Function.json",
+  "id": "e5d7073e-229f-42cc-9f40-3368a1ca944f",
+  "name": "InputTest",
+  "description": "The InputTest function.",
+  "language": "C#",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "Programs": {
+        "type": "array",
+        "description": "Specify departmental headcounts manually.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "Program": {
+              "type": "object",
+              "$hyparStyle": "row",
+              "properties": {
+                "Color": {
+                  "$ref": "https://hypar.io/Schemas/Geometry/Color.json",
+                  "default": {
+                    "Red": 0.945,
+                    "Green": 0.3607,
+                    "Blue": 0.419,
+                    "Alpha": 1
+                  }
+                },
+                "Name": {
+                  "type": "string"
+                }
+              }
+            },
+            "Spaces": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "Unit": {
+                    "type": "object",
+                    "$hyparStyle": "row",
+                    "properties": {
+                      "Area": {
+                        "type": "number"
+                      },
+                      "UnitName": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      }
+                    }
+                  },
+                  "Placement": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "$hyparStyle": "row",
+                      "properties": {
+                        "Level": {
+                          "type": "string"
+                        },
+                        "Count": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "$hyparDisplayName": "Department"
+        }
+      }
+    }
+  },
+  "repository_url": "https://github.com/hypar-io/function",
+  "last_updated": "0001-01-01T00:00:00",
+  "cli_version": "1.6.0",
+  "element_types": [
+    "https://prod-api.hypar.io/schemas/ProgramRequirement",
+    "https://prod-api.hypar.io/schemas/ProgramAdjacencyMatrix",
+    "https://schemas.hypar.io/ProgramType.json",
+    "https://schemas.hypar.io/FloorProgramArea.json"
+  ]
+}
